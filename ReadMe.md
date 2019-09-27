@@ -1,0 +1,1 @@
+# Exercises for CG Module HSLU
