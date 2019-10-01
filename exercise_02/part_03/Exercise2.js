@@ -142,6 +142,10 @@ function draw() {
     gl.vertexAttribPointer(ctx.aVertexPositionId, 2, gl.FLOAT, false, 8, 0);
     gl.enableVertexAttribArray(ctx.aVertexPositionId);
 
+    gl.bindBuffer(gl.ARRAY_BUFFER, rectangleObject.textureBuffer);
+    gl.vertexAttribPointer(ctx.uSampler2Did, 2, gl.FLOAT, false, 8, 0);
+    gl.enableVertexAttribArray(ctx.uSampler2Did);
+
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, lenaTxt.textureObj);
     gl.uniform1i(ctx.uSampler2Did, 0);
