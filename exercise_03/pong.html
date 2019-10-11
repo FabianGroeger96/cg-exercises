@@ -7,9 +7,32 @@
     <script type="text/javascript" src="shaderUtils.js"></script>
     <script type="text/javascript" src="gl-matrix.js"></script>
     <script type="text/javascript" src="Pong.js"></script>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        #scorePlayerLeft {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 10;
+        }
+
+        #scorePlayerRight {
+            position: absolute;
+            left: 400px;
+            top: 0px;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
 <h1>Pong</h1>
-<canvas id="myCanvas" width="800" height="600"></canvas>
+<div class="container">
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <canvas id="scorePlayerLeft" width="400" height="100"></canvas>
+    <canvas id="scorePlayerRight" width="400" height="100"></canvas>
+</div>
 </body>
 </html>
