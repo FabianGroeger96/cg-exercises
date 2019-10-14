@@ -10,7 +10,7 @@ window.onload = startup;
 // the gl object is saved globally
 var gl;
 
-// the score text objects
+// 2d context of the score text objects
 var txtScoreLeft;
 var txtScoreRight;
 
@@ -114,6 +114,9 @@ function setUpBuffers() {
 function draw() {
     "use strict";
     gl.clear(gl.COLOR_BUFFER_BIT);
+    // clear the 2d contexts for the text label
+    txtScoreLeft.clearRect(0, 0, txtScoreLeft.canvas.width, txtScoreLeft.canvas.height);
+    txtScoreRight.clearRect(0, 0, txtScoreRight.canvas.width, txtScoreRight.canvas.height);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, rectangleObject.buffer);
     gl.vertexAttribPointer(ctx.aVertexPositionId, 2, gl.FLOAT, false, 0, 0);
@@ -218,7 +221,7 @@ function drawGameElement(gameElement) {
     mat3.fromTranslation(modelMat, gameElement.position);
     mat3.scale(modelMat, modelMat, gameElement.size);
     gl.uniformMatrix3fv(ctx.uModelMatId, false, modelMat);
-    gl.gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
 }
 
 // Game Field
